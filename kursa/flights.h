@@ -12,3 +12,7 @@ int update_flight(flight* flight);
 int delete_flight(long id);
 int insert_flight(flight* flight);
 int get_all_flights(flight* flights, size_t size);
+int delete_flight_where_driver_id_is(long id);
+int delete_flight_where_transport_id_is(long id);
+int delete_flight_where_client_id_is(long id);
+long get_flights_count();

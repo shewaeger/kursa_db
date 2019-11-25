@@ -13,3 +13,4 @@ int update_client(client* client);
 int delete_client(long id);
 int insert_client(client* client);
 int get_all_clients(client* clients, size_t size);
+long get_clients_count();

@@ -28,11 +28,10 @@ int find_index_by_key(FILE* file_index, long key, db_index* index) {
 
 int get_m_index(FILE* file_index, unsigned long pos, db_index* index)
 {
-
 	if (find_index_by_key(file_index, pos, index ) != 0) {
-		return 0;
+		return -1;
 	}
-
+	return 0;
 }
 
 int del_m(FILE** file_index,const char * filename, unsigned long pos)

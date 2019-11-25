@@ -12,3 +12,4 @@ int update_transport(transport* transport);
 int delete_transport(long id);
 int insert_transport(transport* transport);
 int get_all_transports(transport* transports, size_t size);
+long get_transports_count();

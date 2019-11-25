@@ -132,3 +132,94 @@ int get_all_flights(flight* flights, size_t size) {
 	free(indexes);
 	return total_elements;
 }
+
+int delete_flight_where_driver_id_is(long id)
+{
+	db_index* indexes;
+	long * delete_list;
+	size_t delete_list_size = 0;
+	flight_true flight_t;
+	long count = get_count(flight_index_file);
+	long total_elements;
+	if (count < 0)
+		return -1;
+
+	indexes = (db_index*)malloc(sizeof(db_index) * count);
+	delete_list = (long*)malloc(sizeof(long) * count);
+
+	total_elements = get_all_indexes(flight_index_file, indexes, count);
+
+	for (int i = 0; i < total_elements; i++) {
+		get_data_by_index(flight_data_file, indexes + i, sizeof(flight_true), &flight_t);
+		if (flight_t.id_driver == id) {
+			delete_list[delete_list_size++] = indexes[i].key;
+		}
+	}
+
+	for (int i = 0; i < delete_list_size; i++) {
+		del_m(&flight_index_file, INDEX_FILENAME, delete_list[i]);
+	}
+
+	free(indexes);
+	free(delete_list);
+}
+
+int delete_flight_where_transport_id_is(long id)
+{
+	db_index* indexes;
+	long* delete_list;
+	size_t delete_list_size = 0;
+	flight_true flight_t;
+	long count = get_count(flight_index_file);
+	long total_elements;
+	if (count < 0)
+		return -1;
+
+	indexes = (db_index*)malloc(sizeof(db_index) * count);
+	delete_list = (long*)malloc(sizeof(long) * count);
+
+	total_elements = get_all_indexes(flight_index_file, indexes, count);
+
+	for (int i = 0; i < total_elements; i++) {
+		get_data_by_index(flight_data_file, indexes + i, sizeof(flight_true), &flight_t);
+		if (flight_t.id_transport == id) {
+			delete_list[delete_list_size++] = indexes[i].key;
+		}
+	}
+
+	for (int i = 0; i < delete_list_size; i++) {
+		del_m(&flight_index_file, INDEX_FILENAME, delete_list[i]);
+	}
+	free(indexes);
+	free(delete_list);
+}
+
+int delete_flight_where_client_id_is(long id)
+{
+	db_index* indexes;
+	long* delete_list;
+	size_t delete_list_size = 0;
+	flight_true flight_t;
+	long count = get_count(flight_index_file);
+	long total_elements;
+	if (count < 0)
+		return -1;
+
+	indexes = (db_index*)malloc(sizeof(db_index) * count);
+	delete_list = (long*)malloc(sizeof(long) * count);
+
+	total_elements = get_all_indexes(flight_index_file, indexes, count);
+
+	for (int i = 0; i < total_elements; i++) {
+		get_data_by_index(flight_data_file, indexes + i, sizeof(flight_true), &flight_t);
+		if (flight_t.id_client == id) {
+			delete_list[delete_list_size++] = indexes[i].key;
+		}
+	}
+
+	for (int i = 0; i < delete_list_size; i++) {
+		del_m(&flight_index_file, INDEX_FILENAME, delete_list[i]);
+	}
+	free(indexes);
+	free(delete_list);
+}

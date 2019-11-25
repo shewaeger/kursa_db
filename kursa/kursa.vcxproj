@@ -155,7 +155,9 @@
     <ClCompile Include="db.cpp" />
     <ClCompile Include="driver.cpp" />
     <ClCompile Include="flights.cpp" />
+    <ClCompile Include="input.cpp" />
     <ClCompile Include="kursa.cpp" />
+    <ClCompile Include="tasks.cpp" />
     <ClCompile Include="transport.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +165,8 @@
     <ClInclude Include="driver.h" />
     <ClInclude Include="client.h" />
     <ClInclude Include="flights.h" />
+    <ClInclude Include="input.h" />
+    <ClInclude Include="tasks.h" />
     <ClInclude Include="transport.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,12 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "input.h"
 #include <stdio.h>
-
-long get_digits_from_input()
+#include <stdlib.h>
+long get_digits_from_input( const char * msg)
 {
-
-	printf("Введите число: ");
-	
-
-
-	return 0;
+	char str[50];
+	while (true) {
+		printf(msg);
+		fgets(str, 49, stdin);
+		str[49] = 0;
+		for (int i = 0; i < 50 && str[i]; i++) {
+			if ((str[i] < '0' || str[i] > '9') && str[i] != '\n') {
+				printf("Неверное число.\n");
+				continue;
+			}	
+		}
+		return atol(str);
+	}
 }

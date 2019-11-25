@@ -73,7 +73,7 @@ int insert_transport(transport* transport) {
 	transport_true transport_t;
 	long id;
 	strcpy(transport_t.number, transport->number);
-	strcpy(transport_t.model, transport->number);
+	strcpy(transport_t.model, transport->model);
 	id = insert_m(transport_index_file, transport_data_file, sizeof(transport_true), &transport_t);
 
 	if (id < 0)

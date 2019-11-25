@@ -1,4 +1,7 @@
 #pragma once
-
+#include "input.h"
 int init();
-int add_driver();
+int driver_tasks();
+int transport_task();
+int flights_task();
+int client_task();
